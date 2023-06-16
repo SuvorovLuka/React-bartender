@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white
+}
+
+
+button {
+    padding: 10px 15px;
+    background-color: transparent;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.catalog{
+    display: flex;
+}
