@@ -1,6 +1,6 @@
 import styles from './Home.module.scss'
 
-function Catalog({ alcohol }) {
+function Card({ alcohol }) {
     return (
         <li className={styles.card}>
             <div
@@ -13,13 +13,16 @@ function Catalog({ alcohol }) {
                 <h2 className={styles.card_title}>
                     {alcohol.name}
                 </h2>
-                <p className={styles.card_descr}>
-                    {alcohol.descr}
-                </p>
-                <div className={styles.store}>
-                    <span className={styles.price}>{alcohol.price}$</span>
-                    <button className={styles.btn_card}>
-                        More...
+                <span className={styles.type}>
+                    {alcohol.type}
+                </span>
+                <span className={styles.price}>{alcohol.price}$</span>
+                <div className={styles.btn_group}>
+                    <button className={styles.btn_add}>
+                        Add
+                    </button>
+                    <button className={styles.btn_del}>
+                        Delete
                     </button>
                 </div>
             </div>
@@ -27,4 +30,4 @@ function Catalog({ alcohol }) {
     )
 }
 
-export default Catalog
+export default Card

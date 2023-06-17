@@ -10,13 +10,16 @@ body {
 
 
 button {
-    padding: 10px 15px;
+    text-align: center;
     background-color: transparent;
     color: white;
     border-radius: 10px;
     border: 1px solid white;
+    cursor: pointer;
 }
 
 .catalog{
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
