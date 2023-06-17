@@ -1,0 +1,23 @@
+form {
+    margin: 10px;
+    display:flex;
+    flex-direction: column;
+
+    button{
+        width: 100px;
+    }
+
+    input{
+        width: 300px;
+        padding: 3px 10px;
+        border: 2px solid transparent;
+        outline: none;
+        transition: border .4s ease-in-out;
+        margin-bottom: 10px;
+
+        &:focus {
+            border:2px solid grey;
+        }
+    }
+
+}
