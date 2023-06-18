@@ -1,4 +1,4 @@
-import styles from './Home.module.scss'
+import styles from './CardAlco.module.scss'
 
 function Card({ alcohol }) {
     return (
@@ -19,7 +19,7 @@ function Card({ alcohol }) {
                 <span className={styles.price}>{alcohol.price}$</span>
                 <div className={styles.btn_group}>
                     <button className={styles.btn_add}>
-                        Add
+                        Edit
                     </button>
                     <button className={styles.btn_del}>
                         Delete

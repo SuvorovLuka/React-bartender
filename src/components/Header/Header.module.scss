@@ -1,0 +1,54 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: rgb(72, 71, 71);
+    color: white;
+
+    .logo_header {
+        text-decoration: none;
+        margin-right: 20px;
+
+        .logo {
+            display: flex;
+            align-items: center;
+
+            h1 {
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+
+    .nav {
+        margin-right: auto;
+
+
+        .nav_list {
+            display: flex;
+
+            .nav_item {
+                list-style: none;
+
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+
+                a {
+                    text-decoration: none;
+                    padding: 10px 15px;
+                    border-radius: 15px;
+                    color: white;
+                    background-color: rgb(13, 40, 40);
+                }
+
+            }
+
+
+        }
+
+    }
+    .lk_btn{
+        padding: 10px 15px;
+    }
+}

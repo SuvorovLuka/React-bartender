@@ -2,23 +2,23 @@
     "alcohol": [
         {
             "id": 0,
-            "image":"https://forumsamogon.ru/wp-content/uploads/0/0/3/00358e7fb704168ff9cd522c565274ed.png",
             "name": "Jameson",
+            "price": 100,
             "type": "whiskey",
-            "price": 100
+            "image":"https://forumsamogon.ru/wp-content/uploads/0/0/3/00358e7fb704168ff9cd522c565274ed.png"
         },
         {
             "id": 1,
-            "image":"http://imagerom.com.my/img/michael/w-michael-product-gallery-001.jpg",
             "name": "Absolute",
+            "price": 60,
             "type": "vodka",
-            "price": 60
+            "image":"http://imagerom.com.my/img/michael/w-michael-product-gallery-001.jpg"
         },{
             "id": 2,
-            "image":"https://animeshka.org/uploads/posts/2023-01/1674504163_animeshka-org-p-bacardi-island-krasivo-46.jpg",
             "name": "Bacardi",
+            "price": 90,
             "type": "Rom",
-            "price": 90
+            "image":"https://animeshka.org/uploads/posts/2023-01/1674504163_animeshka-org-p-bacardi-island-krasivo-46.jpg"
         }
     ]
 }
