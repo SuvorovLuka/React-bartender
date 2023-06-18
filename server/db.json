@@ -4,6 +4,7 @@
             "id": 0,
             "name": "Jameson",
             "price": 100,
+            "volume":700,
             "type": "whiskey",
             "image":"https://forumsamogon.ru/wp-content/uploads/0/0/3/00358e7fb704168ff9cd522c565274ed.png"
         },
@@ -11,14 +12,38 @@
             "id": 1,
             "name": "Absolute",
             "price": 60,
+            "volume":700,
             "type": "vodka",
             "image":"http://imagerom.com.my/img/michael/w-michael-product-gallery-001.jpg"
         },{
             "id": 2,
             "name": "Bacardi",
             "price": 90,
+            "volume":700,
             "type": "Rom",
             "image":"https://animeshka.org/uploads/posts/2023-01/1674504163_animeshka-org-p-bacardi-island-krasivo-46.jpg"
+        }
+    ],
+    "ingridient":[
+        {
+            "id":1,
+            "name":"Сахарный сироп",
+            "weight":1000,
+            "price": 100,
+            "image":"https://4bakery.ru/wp-content/uploads/2017/08/5P2A5899.jpg"
+        },
+        {
+            "id":2,
+            "name":"Лимон",
+            "weight":1000,
+            "price": 70,
+            "image":"https://srokigodnosti.ru/wp-content/uploads/2022/10/c998cecb-087b-4e73-8c51-28e29468a0db_Sicilian-Lemon-White-Balsamic-Vinegar-scaled.jpg"
+        },{
+            "id":3,
+            "name":"Мята",
+            "weight":1000,
+            "price": 700,
+            "image":"https://webpulse.imgsmail.ru/imgpreview?mb=webpulse&key=pulse_cabinet-image-185cedea-3977-440b-874b-0232114614ff"
         }
     ]
 }

@@ -31,6 +31,8 @@ function CartForm({ setAlcohol }) {
 
             <input name='type' type="text" placeholder='Type' onChange={e => setData(prev => ({ ...prev, type: e.target.value }))} value={data.type} />
 
+            <input name='volume' type="text" placeholder='Volume' onChange={e => setData(prev => ({ ...prev, volume: e.target.value }))} value={data.volume} />
+
             <input name='image' type="text" placeholder='Image' onChange={e => setData(prev => ({ ...prev, image: e.target.value }))} value={data.image} />
 
             <button onClick={e => createCard(e)}>

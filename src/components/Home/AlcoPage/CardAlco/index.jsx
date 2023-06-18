@@ -1,6 +1,6 @@
 import styles from './CardAlco.module.scss'
 
-function Card({ alcohol }) {
+function CardAlco({ alcohol }) {
     return (
         <li className={styles.card}>
             <div
@@ -16,6 +16,9 @@ function Card({ alcohol }) {
                 <span className={styles.type}>
                     {alcohol.type}
                 </span>
+                <span className={styles.volume}>
+                    {alcohol.volume} мл
+                </span>
                 <span className={styles.price}>{alcohol.price}$</span>
                 <div className={styles.btn_group}>
                     <button className={styles.btn_add}>
@@ -30,4 +33,4 @@ function Card({ alcohol }) {
     )
 }
 
-export default Card
+export default CardAlco

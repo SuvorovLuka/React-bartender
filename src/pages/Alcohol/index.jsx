@@ -1,7 +1,7 @@
 import React from 'react'
 
-import CardAlco from '../../components/Home/CardAlco';
-import CardAlcoForm from '../../components/Home/CardAlcoForm';
+import CardAlco from '../../components/Home/AlcoPage/CardAlco';
+import CardAlcoForm from '../../components/Home/AlcoPage/CardAlcoForm';
 
 
 function Alcohol() {
@@ -10,7 +10,7 @@ function Alcohol() {
     React.useEffect(() => {
         fetch('http://localhost:4200/alcohol')
             .then(res => res.json())
-            .then((arr) => {       
+            .then((arr) => {
                 setAlcohol(arr)
                 console.log(arr)
             });
@@ -18,6 +18,9 @@ function Alcohol() {
 
     return (
         <div className="container">
+            <h2>
+                Alcohol
+            </h2>
             <CardAlcoForm setAlcohol={setAlcohol} />
             <ul className="catalog">
                 {alcohol.map(alcohol => (
