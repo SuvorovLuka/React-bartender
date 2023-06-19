@@ -1,6 +1,6 @@
 import React from 'react'
-import CardIngridient from '../../components/Home/IngridientsPage/CardIngridient'
-import CardIngridientForm from '../../components/Home/IngridientsPage/CardIngridientForm'
+import CardIngridient from './CardIngridient/CardIngridients'
+import CardIngridientForm from './CardIngridientForm/CardIngridientsForm'
 
 function Ingridients() {
   const [ingred, setIngred] = React.useState([])

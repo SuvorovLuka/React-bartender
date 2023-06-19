@@ -1,7 +1,7 @@
 {
     "alcohol": [
         {
-            "id": 0,
+            "id": 1,
             "name": "Jameson",
             "price": 100,
             "volume":700,
@@ -9,14 +9,14 @@
             "image":"https://forumsamogon.ru/wp-content/uploads/0/0/3/00358e7fb704168ff9cd522c565274ed.png"
         },
         {
-            "id": 1,
+            "id": 2,
             "name": "Absolute",
             "price": 60,
             "volume":700,
             "type": "vodka",
             "image":"http://imagerom.com.my/img/michael/w-michael-product-gallery-001.jpg"
         },{
-            "id": 2,
+            "id": 3,
             "name": "Bacardi",
             "price": 90,
             "volume":700,

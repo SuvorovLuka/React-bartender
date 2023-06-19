@@ -1,6 +1,5 @@
 import styles from './Header.module.scss'
 import { Link } from 'react-router-dom'
-import logo from './logo.svg'
 
 function Header() {
     return (
@@ -11,7 +10,7 @@ function Header() {
                     React-Bartender
                 </h1>
                 <div className={styles.logoSvg}>
-                    <img width="50" src={logo} alt="Logo" />
+                    <img width="50" src="./logo.svg" alt="Logo" />
                 </div>
                 </div>
             </Link>

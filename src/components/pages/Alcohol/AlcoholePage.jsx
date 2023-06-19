@@ -1,7 +1,7 @@
 import React from 'react'
 
-import CardAlco from '../../components/Home/AlcoPage/CardAlco';
-import CardAlcoForm from '../../components/Home/AlcoPage/CardAlcoForm';
+import CardAlco from './CardAlco/CardAlco';
+import CardAlcoForm from './CardAlcoForm/CardAlcoForm';
 
 
 function Alcohol() {
