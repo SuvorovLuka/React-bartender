@@ -1,18 +1,24 @@
 import React from 'react'
 import styles from './CardAlcoForm.module.scss'
+import { useForm } from 'react-hook-form';
 
 function CartForm({ setAlcohol }) {
+
+    const { register, reset, handleSubmit } = useForm({
+        mode: 'onChange'
+    })
 
     const [data, setData] = React.useState({
         name: '',
         price: '',
-        type:'',
+        type: '',
         image: '',
     });
 
 
-    const createCard = e => {
-        e.preventDefault()
+    const createCard = data => {
+        console.log('data',data)
+
         setAlcohol(prev => [{ id: prev.length + 1, ...data }, ...prev])
         setData({
             name: '',
@@ -20,22 +26,37 @@ function CartForm({ setAlcohol }) {
             type: '',
             image: '',
         })
+        reset()
     }
 
 
     return (
-        <form action='http://localhost:4200/alcohol' method='POST'>
-            <input name='name' type="text" placeholder='Name' onChange={e => setData(prev => ({ ...prev, name: e.target.value }))} value={data.name} />
+        <form onSubmit={handleSubmit(createCard)}>
+            <input type="text" placeholder='Name'
+                {...register('name', { required: true })}
+            />
 
-            <input name='price' type="number" placeholder='Price' onChange={e => setData(prev => ({ ...prev, price: e.target.value }))} value={data.price} />
+            <input type="number" placeholder='Price'
+                {...register('price', { required: true })}
 
-            <input name='type' type="text" placeholder='Type' onChange={e => setData(prev => ({ ...prev, type: e.target.value }))} value={data.type} />
+            />
 
-            <input name='volume' type="text" placeholder='Volume' onChange={e => setData(prev => ({ ...prev, volume: e.target.value }))} value={data.volume} />
+            <input type="text" placeholder='Type'
+                {...register('type', { required: true })}
 
-            <input name='image' type="text" placeholder='Image' onChange={e => setData(prev => ({ ...prev, image: e.target.value }))} value={data.image} />
+            />
 
-            <button onClick={e => createCard(e)}>
+            <input type="text" placeholder='Volume'
+                {...register('volume', { required: true })}
+
+            />
+
+            <input type="text" placeholder='Image'
+                {...register('image', { required: true })}
+
+            />
+
+            <button >
                 Create
             </button>
         </form>

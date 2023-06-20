@@ -1,18 +1,30 @@
-import React from 'react'
-import CardAlco from '../../components/Home/AlcoPage/CardAlco';
+import { useState, useEffect } from 'react'
+
+// import CardAlco from '../../components/Home/AlcoPage/CardAlco';
+import { useParams } from 'react-router-dom';
 
 function CardDetail() {
+    const { id } = useParams()
+    const [alcohol, setAlcohol] = useState(null)
 
-    React.useEffect(() => {
-        fetch(`http://localhost:4200/alcohol?id=${1}`)
+    useEffect(() => {
+        fetch(`http://localhost:4200/alcohol?id=${id}`)
             .then(res => res.json())
-            .then((arr) => {       
-                
+            .then((arr) => {
+                setAlcohol(arr[0])
             });
-    }, [])
+    }, [id])
 
     return (
-        <CardAlco />
+        <>
+            {
+                alcohol && (
+                    <li>
+                        {alcohol.name}
+                    </li>
+                )
+            }
+        </>
     )
 }
 
