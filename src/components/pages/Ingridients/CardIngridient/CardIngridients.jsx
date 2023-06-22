@@ -16,7 +16,7 @@ function CardIngridient({ingridient}){
             {ingridient.name}
         </h2>
         <span className={styles.weight}>
-        {ingridient.weight} г
+        {ingridient.volume} г
         </span>
         <span className={styles.price}>
         {ingridient.price} Р

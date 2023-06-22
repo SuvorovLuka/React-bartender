@@ -1,7 +1,7 @@
 import styles from './CardAlco.module.scss'
 
 function CardAlco({ alcohol }) {
-    const {name,type}=alcohol
+    // const {name,type}=alcohol
     return (
         <li className={styles.card}>
             <div

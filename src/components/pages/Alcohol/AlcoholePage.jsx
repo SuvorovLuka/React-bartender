@@ -1,18 +1,17 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 
 import CardAlco from './CardAlco/CardAlco';
 import CardAlcoForm from './CardAlcoForm/CardAlcoForm';
 
 
 function Alcohol() {
-    const [alcohol, setAlcohol] = React.useState([])
+    const [alcohol, setAlcohol] = useState([])
 
-    React.useEffect(() => {
+    useEffect(() => {
         fetch('http://localhost:4200/alcohol')
             .then(res => res.json())
             .then((arr) => {
                 setAlcohol(arr)
-                console.log(arr)
             });
     }, [])
 
