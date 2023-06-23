@@ -1,65 +1,87 @@
-import React from 'react'
+import { useState } from 'react'
 import styles from './CardAlcoForm.module.scss'
-import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom'
 
 function CartForm({ setAlcohol }) {
 
-    const { register, reset, handleSubmit } = useForm({
-        mode: 'onChange'
-    })
-
-    const [data, setData] = React.useState({
-        name: '',
-        price: '',
+    const [value, setValue] = useState({
+        name: "",
+        price: 0,
+        volume: 0,
         type: '',
         image: '',
     });
 
+    const [data, setData] = useState();
 
-    const createCard = data => {
-        console.log('data',data)
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-        setAlcohol(prev => [{ id: prev.length + 1, ...data }, ...prev])
-        setData({
-            name: '',
-            price: '',
+        fetch('http://localhost:4200/ingridient', {
+            method: 'POST',
+            body: JSON.stringify(value),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                setData(result);
+
+                fetch('http://localhost:4200/alcohol')
+                    .then(res => res.json())
+                    .then((arr) => {
+                        setAlcohol(arr)
+                    });
+            });
+        setValue({
+            name: "",
+            price: 0,
+            volume: 0,
             type: '',
             image: '',
         })
-        reset()
-    }
-
+    };
 
     return (
-        <form onSubmit={handleSubmit(createCard)}>
-            <input type="text" placeholder='Name'
-                {...register('name', { required: true })}
-            />
+        <>
+            <form onSubmit={handleSubmit}>
+                <span>
+                    Название:
+                </span>
+                <input type="text" placeholder='Name'
+                    onChange={(e) => setValue(prev => ({ ...prev, name: e.target.value }))} value={value.name}
+                />
+                <span>
+                    Цена:
+                </span>
+                <input type="number" placeholder='Price'
+                    onChange={(e) => setValue(prev => ({ ...prev, price: e.target.value }))} value={value.price}
+                />
+                <span>
+                    Вид:
+                </span>
+                <input type="text" placeholder='Type'
+                    onChange={(e) => setValue(prev => ({ ...prev, type: e.target.value }))} value={value.type}
+                />
+                <span>
+                    Объем:
+                </span>
+                <input type="number" placeholder='Volume'
+                    onChange={(e) => setValue(prev => ({ ...prev, volume: e.target.value }))} value={value.volume}
+                />
+                <span>
+                    Картинка:
+                </span>
+                <input type="text" placeholder='Image'
+                    onChange={(e) => setValue(prev => ({ ...prev, image: e.target.value }))} value={value.image}
+                />
 
-            <input type="number" placeholder='Price'
-                {...register('price', { required: true })}
-
-            />
-
-            <input type="text" placeholder='Type'
-                {...register('type', { required: true })}
-
-            />
-
-            <input type="text" placeholder='Volume'
-                {...register('volume', { required: true })}
-
-            />
-
-            <input type="text" placeholder='Image'
-                {...register('image', { required: true })}
-
-            />
-
-            <button >
-                Create
-            </button>
-        </form>
+                <button >
+                    Create
+                </button>
+            </form>
+        </>
     )
 
 }

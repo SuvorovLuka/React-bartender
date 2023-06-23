@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom'
 import styles from './CardAlco.module.scss'
 
 function CardAlco({ alcohol }) {
-    // const {name,type}=alcohol
     return (
         <li className={styles.card}>
             <div
@@ -22,9 +22,11 @@ function CardAlco({ alcohol }) {
                 </span>
                 <span className={styles.price}>{alcohol.price}$</span>
                 <div className={styles.btn_group}>
-                    <button className={styles.btn_add}>
-                        Edit
-                    </button>
+                    <Link to={`/alcohol/${alcohol.id}`}>
+                        <button className={styles.btn_add}>
+                            Edit
+                        </button>
+                    </Link>
                     <button className={styles.btn_del}>
                         Delete
                     </button>

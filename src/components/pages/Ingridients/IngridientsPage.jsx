@@ -10,7 +10,6 @@ function Ingridients() {
       .then(res => res.json())
       .then((arr) => {
         setIngred(arr)
-        console.log(arr)
       });
   }, [])
 
@@ -21,7 +20,7 @@ function Ingridients() {
       </div>
       <div>
         <div>
-          {/* <CardIngridientForm /> */}
+          <CardIngridientForm setIngred={setIngred} />
         </div>
         <ul className="catalog">
           {ingred.map(ingred => (

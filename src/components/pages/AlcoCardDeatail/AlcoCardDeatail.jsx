@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 
-// import CardAlco from '../../components/Home/AlcoPage/CardAlco';
-import { useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 function CardDetail() {
     const { id } = useParams()
     const [alcohol, setAlcohol] = useState(null)
+    const navigate = useNavigate()
+
+    const goBack = () => navigate(-1)
 
     useEffect(() => {
         fetch(`http://localhost:4200/alcohol?id=${id}`)
@@ -19,9 +21,14 @@ function CardDetail() {
         <>
             {
                 alcohol && (
-                    <li>
-                        {alcohol.name}
-                    </li>
+                    <div>
+                        <button onClick={goBack}>
+                            Back
+                        </button>
+                        <li>
+                            {alcohol.name}
+                        </li>
+                    </div>
                 )
             }
         </>

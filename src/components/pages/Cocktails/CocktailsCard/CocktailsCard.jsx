@@ -4,7 +4,7 @@ export const CocktailsCard = ({ cocktail }) => {
 
   let priceCalc = () => {
     let calcArr = cocktail.ingridients.map(ingridient =>
-      (ingridient.price / ingridient.volume) * ingridient.ingridientVolume
+      (Number(ingridient.price) / Number(ingridient.volume)) * Number(ingridient.ingridientVolume)
     )
 
     const sum = calcArr.reduce((acc, numbers) => acc + numbers, 0)
@@ -13,7 +13,7 @@ export const CocktailsCard = ({ cocktail }) => {
 
   let valueCalc = () => {
     let calcArr = cocktail.ingridients.map(ingridient =>
-      ingridient.ingridientVolume
+      Number(ingridient.ingridientVolume)
     )
     const sum = calcArr.reduce((acc, numbers) => acc + numbers, 0)
     console.log(calcArr)
@@ -25,7 +25,7 @@ export const CocktailsCard = ({ cocktail }) => {
     <li>
       {<img
         src={cocktail.image}
-        alt="" />}
+        alt={cocktail.name} />}
       <h2>
         {cocktail.name}
       </h2>
