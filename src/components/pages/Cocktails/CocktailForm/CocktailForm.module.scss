@@ -1,0 +1,14 @@
+.ingr_list {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+
+}
+
+.ingr_item{
+    padding: 5px;
+    border: 1 solid grey;
+    border-radius: 15px;
+    background-color: gray;
+    cursor: pointer;
+}

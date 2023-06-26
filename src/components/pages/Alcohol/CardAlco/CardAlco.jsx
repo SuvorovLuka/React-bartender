@@ -3,31 +3,31 @@ import styles from './CardAlco.module.scss'
 
 function CardAlco({ alcohol }) {
     return (
-        <li className={styles.card}>
+        <li className='card'>
             <div
-                className={styles.card_img}
+                className='card_img'
                 style={{
                     backgroundImage: `url(${alcohol.image})`
                 }}
             />
-            <div className={styles.card_info}>
-                <h2 className={styles.card_title}>
+            <div className='card_info'>
+                <h2 className='card_title'>
                     {alcohol.name}
                 </h2>
-                <span className={styles.type}>
+                <span >
                     {alcohol.type}
                 </span>
-                <span className={styles.volume}>
+                <span >
                     {alcohol.volume} мл
                 </span>
-                <span className={styles.price}>{alcohol.price}$</span>
-                <div className={styles.btn_group}>
+                <span >{alcohol.price}р</span>
+                <div className='btn_group'>
                     <Link to={`/alcohol/${alcohol.id}`}>
-                        <button className={styles.btn_add}>
+                        <button className='btn_add'>
                             Edit
                         </button>
                     </Link>
-                    <button className={styles.btn_del}>
+                    <button className='btn_del'>
                         Delete
                     </button>
                 </div>

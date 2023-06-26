@@ -1,7 +1,8 @@
-import { useState ,useEffect} from 'react'
-import { CocktailsCard } from './CocktailsCard/CocktailsCard'
+import { useState, useEffect } from 'react'
+import CocktailsCard from './CocktailsCard/CocktailsCard'
+import CocktailForm from './CocktailForm/CocktailForm'
 
-function Cocktails(){
+function Cocktails() {
 
   const [cocktails, setCocktails] = useState([])
 
@@ -16,10 +17,11 @@ function Cocktails(){
 
   return (
     <div>
-      <ul>
-      {cocktails.map(cocktail=>(
-      <CocktailsCard cocktail={cocktail} key={cocktail.name} />
-      ))}
+      <CocktailForm />
+      <ul className='catalog'>
+        {cocktails.map(cocktail => (
+          <CocktailsCard cocktail={cocktail} key={cocktail.name} />
+        ))}
       </ul>
     </div>
   )

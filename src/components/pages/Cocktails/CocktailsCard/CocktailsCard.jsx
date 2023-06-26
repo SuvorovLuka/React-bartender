@@ -1,6 +1,6 @@
 import { CocktailsCardIngridient } from './CocktailsCardIngridient/CocktailsCardIngridient'
 
-export const CocktailsCard = ({ cocktail }) => {
+function CocktailsCard({ cocktail }){
 
   let priceCalc = () => {
     let calcArr = cocktail.ingridients.map(ingridient =>
@@ -16,16 +16,18 @@ export const CocktailsCard = ({ cocktail }) => {
       Number(ingridient.ingridientVolume)
     )
     const sum = calcArr.reduce((acc, numbers) => acc + numbers, 0)
-    console.log(calcArr)
     return sum
   }
 
   return (
 
-    <li>
-      {<img
-        src={cocktail.image}
-        alt={cocktail.name} />}
+    <li className='card'>
+      <div
+        className='card_img'
+        style={{
+          backgroundImage: `url(${cocktail.image})`
+        }}
+      />
       <h2>
         {cocktail.name}
       </h2>
@@ -51,3 +53,5 @@ export const CocktailsCard = ({ cocktail }) => {
     </li>
   )
 }
+
+export default CocktailsCard

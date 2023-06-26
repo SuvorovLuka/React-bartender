@@ -18,8 +18,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='alcohol/*' element={<Alcohol />} />
-          {/* <Route path='alcohol/:id' element={<CardDetail />} />s */}
+          <Route path='alcohol' element={<Alcohol />} />
+          <Route path='alcohol/:id' element={<CardDetail />} />s
           <Route path='ingridients' element={<Ingridients />} />
           <Route path='cocktails' element={<Cocktails />} />
           <Route path='*' element={<NotFound />} />

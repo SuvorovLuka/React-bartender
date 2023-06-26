@@ -32,16 +32,5 @@ function Alcohol() {
     );
 }
 
-// const createAlcoCard = async ({ name, price, type, volume, image }) => {
-
-// }
-
-// const createAlcoCardAction = async ({ request }) => {
-//     formData = await request.formData();
-//     const res = fetch('http://localhost:4200/alcohol', {
-//     method:'POST',
-//     body:JSON.stringify({ name, price, type, volume, image })
-//     })
-// }
 
 export default Alcohol;
