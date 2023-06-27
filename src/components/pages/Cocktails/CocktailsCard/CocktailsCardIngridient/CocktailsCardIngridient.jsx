@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-export const CocktailsCardIngridient = (ingridient) => {
-   const ingridientItem=ingridient.ingridient
+export const CocktailsCardIngridient = (ingridientItem) => {
+    const [value, setValue] = useState(null)
+
+    useEffect(() => {
+        fetch(ingridientItem.ingridientItem.ingridient)
+            .then(res => res.json())
+            .then((arr) => {
+                setValue(arr[0])
+            });
+    }, [])
+
+    const volume = ingridientItem.ingridientItem.ingridientVolume
+
+
     return (
+        <>
+            {value && (
         <li>
             {/* <img src="" alt="" /> */}
             <h3>
-            {ingridientItem.name}
+                {value.name}
             </h3>
             <span>
-                :{ingridientItem.ingridientVolume}
+                :{volume}
             </span>
         </li>
+            )}
+        </>
     )
 }

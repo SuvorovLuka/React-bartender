@@ -1,31 +1,18 @@
+import { useParams } from 'react-router-dom';
 import { CocktailsCardIngridient } from './CocktailsCardIngridient/CocktailsCardIngridient'
+import { useEffect,useState } from 'react';
 
 function CocktailsCard({ cocktail }){
 
-  let priceCalc = () => {
-    let calcArr = cocktail.ingridients.map(ingridient =>
-      (Number(ingridient.price) / Number(ingridient.volume)) * Number(ingridient.ingridientVolume)
-    )
-
-    const sum = calcArr.reduce((acc, numbers) => acc + numbers, 0)
-    return sum
-  }
-
-  let valueCalc = () => {
-    let calcArr = cocktail.ingridients.map(ingridient =>
-      Number(ingridient.ingridientVolume)
-    )
-    const sum = calcArr.reduce((acc, numbers) => acc + numbers, 0)
-    return sum
-  }
-
+  
+  
   return (
-
     <li className='card'>
       <div
         className='card_img'
         style={{
           backgroundImage: `url(${cocktail.image})`
+          
         }}
       />
       <h2>
@@ -34,24 +21,30 @@ function CocktailsCard({ cocktail }){
       <ul>
         {cocktail.ingridients.map(ingridient =>
           <CocktailsCardIngridient
-            key={ingridient.name}
-            ingridient={ingridient}
+            ingridientItem={ingridient}
           />
         )}
       </ul>
-      <span>
-        Объем:{
-          valueCalc()
-        } ml
-      </span>
-      <br></br>
-      <span>
-        Себес:{
-          priceCalc()
-        } р
-      </span>
     </li>
   )
 }
 
 export default CocktailsCard
+
+
+            // let priceCalc = () => {
+            //   let calcArr = cocktail.ingridients.map(ingridient =>
+            //     (Number(ingridient.price) / Number(ingridient.volume)) * Number(ingridient.ingridientVolume)
+            //   )
+          
+            //   const sum = calcArr.reduce((acc, numbers) => acc + numbers, 0)
+            //   return sum
+            // }
+          
+            // let valueCalc = () => {
+            //   let calcArr = cocktail.ingridients.map(ingridient =>
+            //     Number(ingridient.ingridientVolume)
+            //   )
+            //   const sum = calcArr.reduce((acc, numbers) => acc + numbers, 0)
+            //   return sum
+            // }

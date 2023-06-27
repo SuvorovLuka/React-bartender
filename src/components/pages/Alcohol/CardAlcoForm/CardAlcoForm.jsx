@@ -17,7 +17,7 @@ function CartForm({ setAlcohol }) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        fetch('http://localhost:4200/ingridient', {
+        fetch('http://localhost:4200/alcohol', {
             method: 'POST',
             body: JSON.stringify(value),
             headers: {
@@ -36,10 +36,10 @@ function CartForm({ setAlcohol }) {
             });
         setValue({
             name: "",
+            image: '',
             price: 0,
             volume: 0,
             type: '',
-            image: '',
         })
     };
 

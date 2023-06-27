@@ -73,63 +73,32 @@
   ],
   "cocktails": [
     {
-      "id": 1,
-      "name": "Daikiri",
-      "image": "https://podacha-blud.com/uploads/posts/2022-10/1665889385_27-podacha-blud-com-p-kokteil-daikiri-sostav-krasivie-foto-29.jpg",
-      "ingridients": [
-        {
-          "id": 3,
-          "ingridientVolume": "40",
-          "name": "Bacardi",
-          "price": "1400",
-          "volume": "700",
-          "type": "Rom",
-          "image": "https://animeshka.org/uploads/posts/2023-01/1674504163_animeshka-org-p-bacardi-island-krasivo-46.jpg"
-        },
-        {
-          "id": 1,
-          "ingridientVolume": "20",
-          "name": "Сахарный сироп",
-          "volume": "1000",
-          "price": "100",
-          "image": "https://4bakery.ru/wp-content/uploads/2017/08/5P2A5899.jpg"
-        },
-        {
-          "id": 2,
-          "ingridientVolume": "20",
-          "name": "Лимон",
-          "volume": "1000",
-          "price": "70",
-          "image": "https://srokigodnosti.ru/wp-content/uploads/2022/10/c998cecb-087b-4e73-8c51-28e29468a0db_Sicilian-Lemon-White-Balsamic-Vinegar-scaled.jpg"
-        }
-      ]
-    },
-    {
       "id": 2,
       "name": "Jin-Fiz",
       "image": "https://podacha-blud.com/uploads/posts/2022-10/1665889385_27-podacha-blud-com-p-kokteil-daikiri-sostav-krasivie-foto-29.jpg",
       "ingridients": [
         {
-          "id": 3,
-          "name": "Bacardi",
-          "price": " 1400",
-          "volume": " 700",
-          "type": "Rom",
-          "image": "https://animeshka.org/uploads/posts/2023-01/1674504163_animeshka-org-p-bacardi-island-krasivo-46.jpg"
+          "ingridient": "http://localhost:4200/alcohol?name=Jameson",
+          "ingridientVolume": "40"
         },
         {
-          "id": 1,
-          "name": "Сахарный сироп",
-          "volume": " 1000",
-          "price": " 100",
-          "image": "https://4bakery.ru/wp-content/uploads/2017/08/5P2A5899.jpg"
+          "ingridient": "http://localhost:4200/ingridient?name=Лимон",
+          "ingridientVolume": "20"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Водка с лаймом",
+      "image": "https://podacha-blud.com/uploads/posts/2022-10/1665889385_27-podacha-blud-com-p-kokteil-daikiri-sostav-krasivie-foto-29.jpg",
+      "ingridients": [
+        {
+          "ingridient": "http://localhost:4200/alcohol?name=Absolute",
+          "ingridientVolume": "40"
         },
         {
-          "id": 2,
-          "name": "Лимон",
-          "volume": " 1000",
-          "price": "70",
-          "image": "https://srokigodnosti.ru/wp-content/uploads/2022/10/c998cecb-087b-4e73-8c51-28e29468a0db_Sicilian-Lemon-White-Balsamic-Vinegar-scaled.jpg"
+          "ingridient": "http://localhost:4200/ingridient?name=Лайм",
+          "ingridientVolume": "20"
         }
       ]
     }

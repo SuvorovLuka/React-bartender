@@ -19,9 +19,9 @@ function Cocktails() {
     <div>
       <CocktailForm />
       <ul className='catalog'>
-        {cocktails.map(cocktail => (
-          <CocktailsCard cocktail={cocktail} key={cocktail.name} />
-        ))}
+      {cocktails.map(cocktail => (
+        <CocktailsCard cocktail={cocktail} key={cocktail.name} />
+      ))}
       </ul>
     </div>
   )

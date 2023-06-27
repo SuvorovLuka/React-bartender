@@ -1,18 +1,21 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 
-export const CocktailFormIngridient = () => {
+
+export const CocktailFormIngridient = ({ ingridients }) => {
+
+
     return (
-        <li>
-            {/* <img src="" alt="" /> */}
+        <>
+            <li>
                 <select name="ingridients" >
-                    <option value="limon" >limon</option>
-                    <option value="lime" >lime</option>
+                    {ingridients.map(ingrideint =>
+                        <option value={ingrideint.name} >{ingrideint.name}</option>
+                    )}
                 </select>
                 колличество в мл
-                <input type="number" />
-                <button>
-                    добавить
-                </button>
-        </li>
+                <input type="text" />
+                <button>удалить</button>
+            </li>
+        </>
     )
 }
