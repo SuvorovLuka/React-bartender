@@ -95,10 +95,6 @@
         {
           "ingridient": "http://localhost:4200/alcohol?name=Jameson",
           "ingridientVolume": "40"
-        },
-        {
-          "ingridient": "http://localhost:4200/ingridient?name=Лимон",
-          "ingridientVolume": "20"
         }
       ]
     },
