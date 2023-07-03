@@ -1,27 +1,28 @@
 import { useState } from 'react'
+import { useForm } from 'react-hook-form';
 
 function CardIngridientForm({ setIngred }) {
-  const [value, setValue] = useState({
-    name: "",
-    price: 0,
-    volume: 0,
-    image: ""
-  })
+  const {
+    register,
+    formState: {
+      errors, isValid
+    },
+    handleSubmit,
+    reset
+  } = useForm()
 
   const [data, setData] = useState({})
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
+  const onSubmit = (value) => {
     fetch('http://localhost:4200/ingridient', {
       method: 'POST',
-            body: JSON.stringify(value),
-            headers: {
-                'Content-Type': 'application/json'
-            }
+      body: JSON.stringify(value),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
-    .then((response) => response.json())
-    .then((result) => {
+      .then((response) => response.json())
+      .then((result) => {
         setData(result)
 
         fetch('http://localhost:4200/ingridient')
@@ -30,31 +31,36 @@ function CardIngridientForm({ setIngred }) {
             setIngred(arr)
           });
       })
+      reset()
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit} >
-        <span>Название</span>
-        <input placeholder='name' name='name' type="text"
-          onChange={e => setValue(prev => ({ ...prev, name: e.target.value }))} value={value.name}
-        />
+      <form onSubmit={handleSubmit(onSubmit)} >
+        <label>Название:
+          <input placeholder='name'
+            {...register('name')}
+          />
+        </label>
 
-        <span>Вес</span>
-        <input placeholder='price' name='price' type="number"
-          onChange={e => setValue(prev => ({ ...prev, price: e.target.value }))} value={value.price}
-        />
+        <label>Цена:
+          <input placeholder='price'
+            {...register('price')}
+          />
+        </label>
 
-        <span>Цена</span>
-        <input placeholder='volume' name='volume' type="number"
-          onChange={e => setValue(prev => ({ ...prev, volume: e.target.value }))} value={value.volume}
-        />
+        <label>Вес:
+          <input placeholder='volume'
+            {...register('volume')}
+          />
+        </label>
 
-        <span>Картинка</span>
-        <input placeholder='image' name='image' type="text"
-          onChange={e => setValue(prev => ({ ...prev, image: e.target.value }))} value={value.image}
-        />
-        <button >Добавить</button>
+        <label>Картинка:
+          <input placeholder='image'
+            {...register('image')}
+          />
+        </label>
+        <button type='submit' disabled={!isValid} >Добавить</button>
       </form>
     </>
   )

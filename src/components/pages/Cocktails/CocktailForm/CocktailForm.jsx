@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { CocktailFormIngridient } from './CocktailFormIngridient'
-import { CocktailFormAlochol } from './CocktailFormAlochol'
-import styles from './CocktailForm.module.scss'
+import React, { Fragment, useState, useEffect } from 'react'
+import { useForm, useFieldArray, Controller } from 'react-hook-form';
+
 
 function CocktailForm() {
 
-  const [openAlcohol, setOpenAlcohol] = useState(false)
-  const [openIngridient, setOpenIngridient] = useState(false)
-  const [alcohol, setAlcohol] = useState([])
   const [ingridients, setIngridients] = useState([])
-
-  const [alcoholItem, setAlcoholItem] = useState([])
-  const [ingridientsItem, setIngridientsItem] = useState([])
-
-
-
-
+  const [alcohol, setAlcohol] = useState([])
+  const [alcoOpen, setAlcoOpen] = useState(false)
+  const [ingOpen, setIngOpen] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:4200/alcohol')
@@ -33,78 +25,131 @@ function CocktailForm() {
       });
   }, [])
 
-  const addAlcohol = (e) => {
-    e.preventDefault()
-    setAlcoholItem({
-      ...alcoholItem,
+  const [ing, setIngr] = useState({
+    type: '',
+    ingridient: '',
+    ingridientVolume: ''
+  })
+
+  const {
+    register,
+    control,
+    formState: {
+      errors, isValid
+    },
+    handleSubmit,
+    reset
+  } = useForm()
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "ingridients"
+  })
+
+  const onSubmit = (value) => {
+    console.log(value)
+    // reset()
+  }
+
+
+  const addObj = () => {
+    append(ing);
+    setIngr({
+      type: '',
+      ingridient: '',
+      ingridientVolume: ''
     })
+  };
+
+  const removeTag = (index) => () => {
+    remove(index);
+  };
+
+  const openAlco = () => {
+    setAlcoOpen(!alcoOpen);
+    setIngOpen(false)
   }
 
-  const addIngridient = (e) => {
-    e.preventDefault()
-    setIngridientsItem([
-      ...ingridientsItem,
-    ])
+  const openIng = () => {
+    setIngOpen(!ingOpen);
+    setAlcoOpen(false)
   }
 
-  console.log(ingridientsItem)
   return (
-    <>
-      <form className='form'  >
-        <input type="text" name='name' placeholder='name'
-
+    <form onSubmit={handleSubmit(onSubmit)} >
+      <label>Название:
+        <input placeholder='name'
+          {...register('name')}
         />
-        <input type="text" name='image' placeholder='image'
-
+      </label>
+      <label>Картинка:
+        <input placeholder='image'
+          {...register('image')}
         />
+      </label>
+      <div>
+        <button onClick={() => openAlco()}>Алкоголь</button>
+        <button onClick={() => openIng()}>Ингридиенты</button>
+      </div>
+      {alcoOpen && (
         <div >
-          <ul className={styles.ingr_list}>
-            <li className={styles.ingr_item}
-              onClick={() => setOpenAlcohol(!openAlcohol)}
-            >Алкоголь</li>
-
-            <li className={styles.ingr_item}
-              onClick={() => setOpenIngridient(!openIngridient)}
-            >Ингридиенты</li>
-          </ul>
-          {openAlcohol && (
-            <>
-              <h2> Алкоголь</h2>
-              <button onClick={addAlcohol}>+</button>
-            </>
-
-          )}
-          {openIngridient && (
-            <>
-              <h2> Ингридиенты</h2>
-              <button onClick={addIngridient}>+</button>
-              <ul>
-                {ingridientsItem.map(ingridientItem =>
-                  <li>
-                    <select name="ingridients"
-
-                    >
-                      {ingridients.map(ingrideint =>
-                        <option value={ingrideint.name} >{ingrideint.name}</option>
-                      )}
-                    </select>
-                    колличество в мл
-                    <input type="text" />
-                    <button>удалить</button>
-                  </li>
-                )}
-
-              </ul>
-            </>
-          )}
-
+          <h2> Алкоголь</h2>
+          <select value={ing.ingridient} name="ingridient" onChange={e => setIngr(prev => ({ ...prev, ingridient: e.target.value, type: 'alcohol' }))} >
+            <option value="">Алкоголь</option>
+            {alcohol.map(alcohol =>
+              <option key={alcohol.id}
+                value={alcohol.name}
+              >{alcohol.name}</option>
+            )}
+          </select>
+          <input placeholder="мл" value={ing.ingridientVolume}
+            onChange={e => setIngr(prev => ({ ...prev, ingridientVolume: e.target.value }))}
+          />
+          <button type="button" onClick={addObj}>
+            Add Tag
+          </button>
         </div>
-        <button type='submit'>
-          Создать
-        </button>
-      </form>
+      )}
+      <div >
+        {ingOpen && (
+          <div >
+            <h2> Ингридиенты</h2>
+            <select value={ing.ingridient} name="ingridient" onChange={e => setIngr(prev => ({ ...prev, ingridient: e.target.value, type: 'ingridient' }))} >
+              <option value="">Ингридиенты</option>
+              {ingridients.map(alcohol =>
+                <option key={alcohol.id}
+                  value={alcohol.name}
+                >{alcohol.name}</option>
+              )}
+            </select>
+            <input placeholder="мл" value={ing.ingridientVolume}
+              onChange={e => setIngr(prev => ({ ...prev, ingridientVolume: e.target.value }))}
+            />
+            <button type="button" onClick={addObj}>
+              Add Tag
+            </button>
+          </div>
+        )
+        }
+      </div>
+      {fields.map((item, index) => (
+        <Fragment key={item.id}>
+          <Controller
+            render={({ field }) => <p>{item.ingridient}:{item.ingridientVolume} ml</p>
+            }
+            name={`ingridients[${index}]`}
+            control={control}
+          />
+          <button type="button" onClick={removeTag(index)}>
+            Remove
+          </button>
+        </Fragment>
+      ))}
+      <button type='submit' disabled={!isValid}>
+        Создать
+      </button>
+    </form>
 
-    </>
   )
 }
 

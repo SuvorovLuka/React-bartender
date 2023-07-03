@@ -21,7 +21,7 @@
       "name": "Bacardi",
       "price": " 1400",
       "volume": " 700",
-      "type": "Rom",
+      "type": "rum",
       "image": "https://animeshka.org/uploads/posts/2023-01/1674504163_animeshka-org-p-bacardi-island-krasivo-46.jpg"
     },
     {
@@ -39,6 +39,14 @@
       "type": "tequila",
       "image": "https://restoranservis.ru/wp-content/uploads/1625000173_olmeca-blanco.jpg",
       "id": 5
+    },
+    {
+      "name": "Havana Club 3",
+      "price": "2100",
+      "volume": "700",
+      "type": "rum",
+      "image": "https://vzboltay.com/uploads/posts/2021-10/1634484520_havana-club-anos-3.jpg",
+      "id": 6
     }
   ],
   "ingridient": [
@@ -69,6 +77,13 @@
       "volume": "210",
       "image": "https://catherineasquithgallery.com/uploads/posts/2023-02/1676556928_catherineasquithgallery-com-p-kartinki-fon-laim-124.jpg",
       "id": 5
+    },
+    {
+      "name": "Апельсин",
+      "price": "100",
+      "volume": "1000",
+      "image": "https://w-dog.ru/wallpapers/5/5/547711514560240/apelsiny-apelsin-frukty-dolki-sochno-sochnyj-sladkij-appetitnyj-vitaminy-eda-oranzhevyj.jpg",
+      "id": 6
     }
   ],
   "cocktails": [
@@ -88,7 +103,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "Водка с лаймом",
       "image": "https://podacha-blud.com/uploads/posts/2022-10/1665889385_27-podacha-blud-com-p-kokteil-daikiri-sostav-krasivie-foto-29.jpg",
       "ingridients": [

@@ -20,7 +20,7 @@ function CocktailsCard({ cocktail }){
       </h2>
       <ul>
         {cocktail.ingridients.map(ingridient =>
-          <CocktailsCardIngridient
+          <CocktailsCardIngridient 
             ingridientItem={ingridient}
           />
         )}

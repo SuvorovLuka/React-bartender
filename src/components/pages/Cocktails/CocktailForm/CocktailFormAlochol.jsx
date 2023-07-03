@@ -1,30 +1,30 @@
 import { useState, useEffect } from 'react'
 
-export const CocktailFormAlochol = ({ alcohol, setAlcoholItemCard, alcoholItemCard }) => {
+export const CocktailFormAlochol = ({ valueIng, setValueIng }) => {
 
-    // [alcoholItem,setAlcoholItem] =useState({
+    const [alcohol, setAlcohol] = useState([])
 
-    // })
+    useEffect(() => {
+        fetch('http://localhost:4200/alcohol')
+            .then(res => res.json())
+            .then((arr) => {
+                setAlcohol(arr)
+            });
+    }, [])
+
 
     return (
         <li>
-
             <select name="ingridients"
                 onChange={(e) => {
-                    setAlcoholItemCard(prev => ({ ...prev, name: e.target.value }))
-                    console.log(e.target.value)
+                    setValueIng(prev => ({ ...prev, ingridient: e.target.value }))
                 }}
             >
-                {alcohol.map(alcohol =>
-                    <option
-                        value={alcohol.name}
-                    >{alcohol.name}</option>
-                )}
+               
             </select>
             колличество в мл
-            <input type="number" value={alcoholItemCard.ingridientVolume} onChange={(e) => {
-                setAlcoholItemCard(prev => ({ ...prev, ingridientVolume: e.target.value }))
-                console.log(e.target.value)
+            <input type="number" value={valueIng.ingridientVolume} onChange={(e) => {
+                setValueIng(prev => ({ ...prev, ingridientVolume: e.target.value }))
             }
             }
             />

@@ -1,9 +1,16 @@
 import { useState, useEffect } from 'react'
 
+export const CocktailFormIngridient = () => {
 
-export const CocktailFormIngridient = ({ ingridients }) => {
+  const [ingridients, setIngridients] = useState([])
 
-
+    useEffect(() => {
+        fetch('http://localhost:4200/ingridient')
+          .then(res => res.json())
+          .then((arr) => {
+            setIngridients(arr)
+          });
+      }, [])
     return (
         <>
             <li>
